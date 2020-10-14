@@ -28,6 +28,12 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::get('/users','AdminController@users');
 	Route::get('/userroleedit/{id}','AdminController@userroleedit');
 	Route::put('/userroleupdate/{id}','AdminController@userroleupdate');
+	Route::delete('/deleteuser/{id}','AdminController@userdelete');
+
+
+	Route::get('/students','AdminController@students');
+	Route::put('/infocreate','AdminController@infostore');
+	Route::get('/editinfo/{id}','AdminController@editinfo');
 
 
 

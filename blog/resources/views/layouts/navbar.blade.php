@@ -50,6 +50,16 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="/students" class="nav-link {{ 'students' == request()->path() ? 'active' : '' }}">
+              <i class="fas fa-user-graduate"></i>
+              <p>
+               Students
+        
+              </p>
+            </a>
+          </li>
+
           
           
         </ul>

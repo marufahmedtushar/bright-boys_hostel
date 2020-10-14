@@ -130,7 +130,7 @@
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
                 <div class="modal-body">
-                  <p>Are  You  Sure  to  Delete Room {{$room->room_number}} ??</p>
+                  <p>Are  You  Sure  to  Delete Room  ??</p>
                   <input type="hidden" name="room_id" id="room_id">
                 </div>
                 <div class="modal-footer justify-content-between">

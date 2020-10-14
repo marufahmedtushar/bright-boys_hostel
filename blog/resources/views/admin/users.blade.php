@@ -40,7 +40,8 @@
                   <td><span class="badge badge-success">{{$user->user_type}}</span></td>
                   <td> {{$user->created_at}}</td>
                   <td><a class="btn btn-info btn-sm" href="/userroleedit/{{$user->id}}"><i class="fas fa-pencil-alt"></i> Edit</a>
-                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal"data-target=""  data-userid="{{$user->id}}"><i class="fas fa-trash"></i> Delete</a>
+                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-userid="{{$user->id}}">
+                        <i class="fas fa-trash"></i> Delete</a>
                      
                       
                   </td>
@@ -109,6 +110,38 @@
   </div>
 </div>
 
+        @foreach($users as $user)
+
+<div class="modal  fade" id="modal-danger">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Delete User</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/deleteuser/{{$user->id}}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <div class="modal-body">
+                  <p>Are  You  Sure  to  Delete Room  ??</p>
+                  <input type="hidden" name="user_id" id="user_id">
+                </div>
+                <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-danger btn-sm toastrDefaultDelete">Delete </button>
+            </div>
+            </form>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+      @endforeach
+
  
               
               </div>
@@ -156,9 +189,15 @@
     $('.toastrDefaultSuccess').click(function() {
       toastr.success('User Type Edited Successfully')
     });
+$('#modal-danger').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var user_id = button.data('userid') 
+  var modal = $(this)
+  modal.find('.modal-body #user_id').val(user_id)
+})
 
-    $('.toastrDefaultSuccess').click(function() {
-      toastr.success('User Role Updated')
+$('.toastrDefaultDelete').click(function() {
+      toastr.success('User Deleted')
     });
 
 
