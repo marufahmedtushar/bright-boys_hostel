@@ -20,12 +20,13 @@ class CreateInformationTable extends Migration
             $table->string('university');
             $table->string('department');
             $table->string('addresss');
+            $table->string('room_number');
             $table->timestamps();
         });
 
         Schema::table('information', function (Blueprint $table) {
-            $table->unsignedBigInteger('room_number');
-            $table->foreign('room_number')->references('id')->on('rooms')->onDelete('cascade');
+            $table->unsignedBigInteger('room_id');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
     }
 

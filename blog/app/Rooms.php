@@ -8,7 +8,7 @@ class Rooms extends Model
 {
      public function information()
     {
-        return $this->hasMany('App\information');
+        return $this->hasMany('App\Information');
     }
 
     public function user()

@@ -34,6 +34,11 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::get('/students','AdminController@students');
 	Route::put('/infocreate','AdminController@infostore');
 	Route::get('/editinfo/{id}','AdminController@editinfo');
+	Route::put('/updateinfo/{id}','AdminController@updateinfo');
+
+
+	Route::put('/billcreate','AdminController@billstore');
+	Route::get('/viewbill/{id}','AdminController@viewbill');
 
 
 

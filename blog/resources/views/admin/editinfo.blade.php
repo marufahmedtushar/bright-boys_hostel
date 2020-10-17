@@ -19,12 +19,12 @@
                 
 
 
-         <div class="card card-info">
+         <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Input Addon</h3>
+                <h3 class="card-title">Edit Info Form</h3>
               </div>
               <div class="card-body">
-                <form action="" method="POST">
+                <form action="/updateinfo/{{$infos->id}}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('PUT') }}
                 <div class="card-body">
@@ -36,29 +36,52 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Name:</label>
-                    <input type="text" class="form-control"  value="{{$infos->name}}">
+                    <label>Edit Name:</label>
+                    <input type="text" class="form-control" name="name" value="{{$infos->name}}">
                   </div>
 
                   <div class="form-group">
-                    <label>Email address:</label>
-                    <input type="email" class="form-control"  value="{{$infos->email}}">
+                    <label>Edit Email address:</label>
+                    <input type="email" class="form-control" name="email" value="{{$infos->email}}">
                   </div>
 
                   <div class="form-group">
-            <label >university:</label>
-            <input type="text" class="form-control" value="{{$infos->university}}" >
+            <label >Edit university:</label>
+            <input type="text" class="form-control" name="university" value="{{$infos->university}}" >
           </div>
 
           <div class="form-group">
-            <label >department:</label>
-            <input type="text" class="form-control" value="{{$infos->department}}" >
+            <label >Edit department:</label>
+            <input type="text" class="form-control" name="department" value="{{$infos->department}}" >
           </div>
 
           <div class="form-group">
-            <label>address:</label>
-            <input type="text" class="form-control" value="{{$infos->addresss}}" >
+            <label>Edit address:</label>
+            <input type="text" class="form-control" name ="address" value="{{$infos->addresss}}" >
           </div>
+
+
+          <div class="form-group">
+                        <label>edit appointed   room :</label>
+                        <select class="custom-select" name="room_id"class="form-control" id="room_id"  required>
+                 
+                         <option selected>{{$infos->room_id}}</option>
+                                 @foreach($rooms as $room)
+                          <option value="{{$room->id}}">{{$room->room_number}}-->{{$room->id}}</option>
+                        @endforeach
+                        </select>
+                      </div>
+
+            <div class="form-group">
+                        <label>edit   room :</label>
+                        <select class="custom-select" name="room_number"class="form-control" id="room_number"  required>
+
+                        	<option selected>{{$infos->room_number}}</option>
+                         @foreach($rooms as $room)
+                          <option value="{{$room->room_number}}">{{$room->room_number}}</option>
+                        @endforeach
+                        </select>
+                      </div>
 
 
                   
@@ -86,5 +109,14 @@
             </div>
           </div>
     </section>
+
+@endsection
+
+@section('js')
+<script>
+ $('.toastrDefaultSuccess').click(function() {
+      toastr.success('Student info  updated')
+    });
+</script>
 
 @endsection

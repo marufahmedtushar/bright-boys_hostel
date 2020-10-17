@@ -6,8 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Information extends Model
 {
+
+	protected $table ='information';
     public function user()
     {
-        return $this->belongsTo('App\Rooms');
+        return $this->belongsTo('App\User');
+    }
+
+
+    public function bills()
+    {
+        return $this->belongsToMany('App\Bill')->withTimestamps();
     }
 }

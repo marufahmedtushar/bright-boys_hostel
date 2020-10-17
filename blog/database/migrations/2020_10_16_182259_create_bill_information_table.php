@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddRoomNumberToInformationTable extends Migration
+class CreateBillInformationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddRoomNumberToInformationTable extends Migration
      */
     public function up()
     {
-        Schema::table('information', function ( $table) {
-            $table->string('room_number');
+        Schema::create('bill_information', function (Blueprint $table) {
+            $table->id();
+            $table->Integer('bill_id');
+            $table->Integer('information_id');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddRoomNumberToInformationTable extends Migration
      */
     public function down()
     {
-        Schema::table('information', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('bill_information');
     }
 }
