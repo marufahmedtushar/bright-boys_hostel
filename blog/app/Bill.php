@@ -12,4 +12,10 @@ class Bill extends Model
     {
         return $this->belongsToMany('App\Information')->withTimestamps();
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

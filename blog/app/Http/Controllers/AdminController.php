@@ -150,9 +150,18 @@ class AdminController extends Controller
     public function billstore(Request $request){
 
         $this->validate($request,[
+            'date' => 'required',
             'name' => 'required',
             'email' => 'required',
-            'room_number' => 'required'
+            'mobile' => 'required',
+            'room_number' => 'required',
+            'payment_status' => 'required',
+            'months' => 'required',
+            'hostelbill' => 'required',
+            'mealbill' => 'required',
+            'internetbill' => 'required',
+            'otherdue' => 'required',
+            'totalbill' => 'required'
       
             
 
@@ -160,12 +169,22 @@ class AdminController extends Controller
 
 
 
-        $infos = new Bill();
-        $infos->name = $request->input('name');
-        $infos->email = $request->input('email');
-        $infos->room_number = $request->input('room_number');
+        $bills = new Bill();
+        $bills-> user_id = Auth::id();
+        $bills->date = $request->input('date');
+        $bills->name = $request->input('name');
+        $bills->email = $request->input('email');
+        $bills->mobile = $request->input('mobile');
+        $bills->room_number = $request->input('room_number');
+        $bills->paymentstatus = $request->input('payment_status');
+        $bills->months = implode(",", $request->months);
+        $bills->hostelbill = $request->input('hostelbill');
+        $bills->mealbill = $request->input('mealbill');
+        $bills->internetbill = $request->input('internetbill');
+        $bills->otherdue = $request->input('otherdue');
+        $bills->totalbill = $request->input('totalbill');
         
-        $infos->save();
+        $bills->save();
 
         return redirect('/students');
     }

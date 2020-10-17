@@ -69,7 +69,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New room</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New Student Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -84,7 +84,8 @@
                         <label>Name :</label>
                         <select class="custom-select" name="name"class="form-control" id="name">
                          @foreach($users as $user)
-                          @if ($user->user_type == 'admin' ) @continue @endif
+                          @if ($user->user_type == 'admin') @continue 
+                          @elseif ($user->user_type == 'user') @continue @endif
                           <option value="{{$user->name}}">{{$user->name}}</option>
                         @endforeach
                         </select>
@@ -176,7 +177,8 @@
                         <label>Name :</label>
                         <select class="custom-select" name="name"class="form-control" id="name">
                          @foreach($users as $user)
-                          @if ($user->user_type == 'admin' ) @continue @endif
+                          @if ($user->user_type == 'admin') @continue 
+                          @elseif ($user->user_type == 'user') @continue @endif
                           <option value="{{$user->name}}">{{$user->name}}</option>
                         @endforeach
                         </select>
