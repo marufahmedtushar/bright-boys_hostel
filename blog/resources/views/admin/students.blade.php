@@ -50,8 +50,6 @@
                     <a class="btn btn-info btn-sm" href="/editinfo/{{$info->id}}"><i class="fas fa-pencil-alt"></i> Edit Details</a>
                   
                     <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#bill" data-name="{{$info->name}}"data-email="{{$info->email}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-plus-circle"></i> Add bill </button>
-
-                  <a class="btn btn-info btn-sm" href="/viewbill/{{$info->id}}"><i class="fas fa-pencil-alt"></i> Edit Details</a>
                   </td>
                   
                 </tr>
@@ -62,6 +60,9 @@
                 </tbody>
                 
               </table>
+
+
+            
 
             
 
@@ -523,13 +524,22 @@
 
 </div>
 </div>
+</div>
+</div>
+</div>
 </section>
 
 @endsection
 
 
 @section('js')
-<script>
+
+
+
+ 
+<script type="text/javascript">
+   
+
   $(function () {
     $("#example1").DataTable({
       "responsive": true,

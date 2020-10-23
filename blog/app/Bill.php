@@ -8,11 +8,7 @@ class Bill extends Model
 {
 
 	protected $table ='bills';
-    public function informations()
-    {
-        return $this->belongsToMany('App\Information')->withTimestamps();
-    }
-
+    
 
     public function user()
     {

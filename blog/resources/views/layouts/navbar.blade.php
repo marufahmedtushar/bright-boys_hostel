@@ -60,6 +60,36 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="/categories" class="nav-link {{ 'categories' == request()->path() ? 'active' : '' }}">
+             <i class="fas fa-utensils"></i>
+              <p>
+               Categories of Meal
+        
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="/item" class="nav-link {{ 'item' == request()->path() ? 'active' : '' }}">
+             <i class="fas fa-drumstick-bite"></i>
+              <p>
+               List of Meal
+        
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item ">
+            <a href="/bills" class="nav-link {{ 'bills' == request()->path() ? 'active' : '' }}">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <p>
+               Bill
+        
+              </p>
+            </a>
+          </li>
+
           
           
         </ul>

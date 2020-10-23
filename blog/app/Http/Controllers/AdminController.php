@@ -4,15 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Rooms;
 use App\User;
 use App\Information;
 use App\Bill;
+use App\Categories;
+use App\Item;
+use App\Menu;
 class AdminController extends Controller
 {
      public function dashboard()
     {
-    	return view('admin.dashboard');
+
+        
+        $totalrooms = Rooms::count();
+        $totalusers = User::count();
+        $totalstudents = Information::count();
+        $totalcategories = Categories::count();
+        $totalmenus= Item::count();
+
+
+        return view('admin.dashboard',[
+            'totalrooms'=>$totalrooms,
+            'totalusers'=>$totalusers,
+            'totalstudents'=>$totalstudents,
+            'totalcategories'=>$totalcategories,
+            'totalmenus'=>$totalmenus,
+        ]);
+
     }
 
     public function rooms()
@@ -191,14 +211,224 @@ class AdminController extends Controller
 
 
 
-    public function viewbill(Request $request,$id){
-        $information = Information::findOrFail($id);
-         $bills = Bill::all();
-        return view('admin.viewbill')->with('information',$information)->with('bills',$bills);
+    public function viewbill($id){
+    
+         $bill = Bill::findOrFail($id);
+        return view('admin.viewbill')->with('bill',$bill);
 
     }
 
-   
+
+    public function bills()
+    {
+        $bills = Bill::all();
+        return view('admin.bill')->with('bills',$bills);
+    }
+
+    public function editbill($id){
+        $bills = Bill::findOrFail($id);
+        return view('admin.editbill')->with('bills',$bills);
+
+    }
+
+    public function updatebill(Request $request,$id){
+
+
+        $this->validate($request,[
+            'paymentstatus' => 'required',
+        ]);
+
+
+
+        $bills = Bill::find($id);
+        $bills->paymentstatus = $request->input('paymentstatus');
+        $bills->update();
+
+        return redirect('/bills');
+    }
+
+
+    public function categories()
+    {
+        $categories = Categories::all();
+        return view('admin.categories')->with('categories',$categories);
+    }
+
+
+    public function categorystore(Request $request){
+
+        $this->validate($request,[
+            'name' => 'required'
+      
+            
+
+        ]);
+
+
+
+        $categories = new Categories();
+        $categories->name = $request->input('name');
+        $categories->save();
+
+        return redirect('/categories');
+    }
+
+
+    public function item()
+    {
+        $items = Item::all();
+        $categories = Categories::all();
+        $menus = Menu::all();
+        return view('admin.meals')->with('items',$items)->with('categories',$categories)->with('menus',$menus);
+    }
+
+    public function itemstore(Request $request){
+
+        $this->validate($request,[
+            'name' => 'required',
+            'desc' => 'required',
+            'price' => 'required',
+            'cover_image' => 'image|nullable|max:1999',
+            'categories_id' => 'required'
+            
+      
+            
+
+        ]);
+
+
+        //file upload
+        if($request->hasFile('cover_image')){
+            //get file name  with the  extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //get just file name
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //file name to  store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+
+
+
+        $item = new Item;
+        $item->name = $request->input('name');
+        $item->desc = $request->input('desc');
+        $item->price = $request->input('price');
+        $item->cover_image = $fileNameToStore;
+        $item->categories_id = $request->input('categories_id');
+        $item->save();
+        return redirect('/item');
+    }
+
+    public function itemdelete(Request $request)
+    {
+
+        $items = Item::findOrFail($request->item_id);
+        if($items->cover_image != 'noimage.jpg'){
+            // Delete Image
+            Storage::delete('public/cover_images/'.$items->cover_image);
+        }
+        $items->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/item');
+
+    }
+
+
+    public function menustore(Request $request){
+
+        $this->validate($request,[
+            'day' => 'required',
+            'breakfast_menu' => 'required',
+            'lunch_menu' => 'required',
+            'dinner_menu' => 'required'
+
+        ]);
+
+
+
+        $menu = new Menu;
+        $menu->day = $request->input('day');
+        $menu->breakfast_menu = implode(",", $request->breakfast_menu);
+        $menu->lunch_menu = implode(",", $request->lunch_menu);
+        $menu->dinner_menu = implode(",", $request->dinner_menu);
+        $menu->save();
+        return redirect('/item');
+
+    }
+
+
+    public function edititem($id){
+        $items = Item::findOrFail($id);
+        $categories = Categories::all();
+        return view('admin.edititem')->with('items',$items)->with('categories',$categories);
+
+    }
+
+
+    public function updateitem(Request $request,Item $item){
+
+
+        $this->validate($request,[
+            'name' => 'required',
+            'desc' => 'required',
+            'price' => 'required',
+            'categories_id' => 'required',
+
+        ]);
+
+
+        //file upload
+        if($request->hasFile('cover_image')){
+            //get file name  with the  extension
+            $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //get just file name
+            $filename = pathinfo($filenameWithExt,PATHINFO_FILENAME);
+            //get just ext
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+            //file name to  store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //upload image
+            $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToStore);
+
+
+        }
+
+
+
+      
+        $item->name = $request->input('name');
+        $item->desc = $request->input('desc');
+        $item->price = $request->input('price');
+        $item->categories_id = $request->input('categories_id');
+
+        if($request->hasFile('cover_image')){
+            $item->cover_image = $fileNameToStore;
+        }
+        $item->save();
+        return redirect('/item');
+    }
+
+
+   public function menudelete(Request $request)
+    {
+
+        $menus = Menu::findOrFail($request->menu_id);
+        $menus->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/item');
+
+    }
+
 
 
     

@@ -11,6 +11,10 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
    
 <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
+
+<link rel="stylesheet" href="{{asset('assets/plugins/datatables.bootstrap.css')}}">
+
+  <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
   <!-- SweetAlert2 -->
@@ -35,6 +39,8 @@
   <!-- Select2 -->
 <link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -275,6 +281,16 @@
 <script src="{{asset('assets/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+
+
+
+    <script src="{{asset('assets/export/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('assets/export/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('assets/export/jszip.min.js')}}"></script>
+    <script src="{{asset('assets/export/pdfmake.min.js')}}"></script>
+    <script src="{{asset('assets/export/vfs_fonts.js')}}"></script>
+    <script src="{{asset('assets/export/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('assets/export/buttons.print.min.js')}}"></script>
 @yield('js')
 </body>
 

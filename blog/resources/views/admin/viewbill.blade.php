@@ -9,21 +9,18 @@
 
 @section('content')
 
-@foreach($bills as $bill)
+
 
 
 <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-12">
-            <div class="callout callout-info">
-              <h5><i class="fas fa-info"></i> Note:</h5>
-              This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
-            </div>
+            
 
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3">
+            <div class="invoice p-3 mb-3   dataTable js-exportable">
               <!-- title row -->
               <div class="row">
                 <div class="col-12">
@@ -60,14 +57,14 @@
                   <br>
                   <b>Order ID:</b> 4F3S8J<br>
                   <b>Payment of:</b> {{$bill->months}}<br>
-                  <b>Account:</b> 968-34567
+                  <b>Payment Status:</b> {{$bill->paymentstatus}}
                 </div>
                 <!-- /.col -->
               </div>
               <!-- /.row -->
 
               <!-- Table row -->
-              <div class="row">
+              <div class="row" id="content">
                 <div class="col-12 table-responsive">
                   <table class="table table-striped">
                     <thead>
@@ -163,7 +160,12 @@
     </section>
 
 
-@endforeach
 
+
+
+@endsection
+
+
+@section('js')
 
 @endsection

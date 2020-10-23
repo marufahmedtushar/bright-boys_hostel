@@ -38,7 +38,31 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 
 	Route::put('/billcreate','AdminController@billstore');
+
+
+	Route::get('/bills','AdminController@bills');
 	Route::get('/viewbill/{id}','AdminController@viewbill');
+	Route::get('/editbill/{id}','AdminController@editbill');
+	Route::put('/updatebill/{id}','AdminController@updatebill');
+
+
+
+	Route::get('/categories','AdminController@categories');
+	Route::put('/categoriescreate','AdminController@categorystore');
+
+
+	Route::get('/item','AdminController@item');
+	Route::put('/itemcreate','AdminController@itemstore');
+	Route::get('/edititem/{id}','AdminController@edititem');
+	Route::put('/updateitem/{item}','AdminController@updateitem');
+	Route::delete('/deleteitem/{id}','AdminController@itemdelete');
+
+
+
+	Route::put('/menucreate','AdminController@menustore');
+
+
+
 
 
 

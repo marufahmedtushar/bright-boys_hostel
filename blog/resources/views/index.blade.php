@@ -115,7 +115,6 @@
     </div>
   </div>
 
-
   <div class="container">
       
       <div class="row site-section">
@@ -190,130 +189,76 @@
       <div class="container">
          <div class="row mb-5">
             <div class="col-md-7 section-heading">
-              <span class="subheading-sm">Featured Rooms</span>
-              <h2 class="heading">Rooms &amp; Suites</h2>
+              <span class="subheading-sm">Our Dishes for the Students</span>
+              <h2 class="heading">Meal Chart</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, iusto, omnis! Quidem, sint, impedit? Dicta eaque delectus tempora hic, corporis velit doloremque quod quam laborum, nobis iusto autem culpa quaerat!</p>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="nonloop-block-13 owl-carousel">
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_1.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">Bachelor Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">156</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_2.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">Family Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">320</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_3.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">Presidential Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">425</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_4.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">Double Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">525</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_5.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">VIP Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">600</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <div class="block-34">
-                      <div class="image">
-                        <a href="#"><img src="images/img_6.jpg" alt="Image placeholder"></a>
-                      </div>
-                      <div class="text">
-                        <h2 class="heading">VIP Room</h2>
-                        <div class="price"><sup>$</sup><span class="number">760</span><sub>/per night</sub></div>
-                        <ul class="specs">
-                          <li><strong>Adults:</strong> 1</li>
-                          <li><strong>Categories:</strong> Single</li>
-                          <li><strong>Facilities:</strong> Closet with hangers, HD flat-screen TV, Telephone</li>
-                          <li><strong>Size:</strong> 20m<sup>2</sup></li>
-                          <li><strong>Bed Type:</strong> One bed</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+             
                   
+
+                  <table class="table table-borderless table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Day</th>
+      <th scope="col">Breakfast</th>
+      <th scope="col">Lunch</th>
+      <th scope="col">Dinner</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($menus as  $menu)
+    <tr>
+      <th scope="row">{{$menu->day}}</th>
+      <td>
+        @foreach( explode(",",$menu->breakfast_menu) as $row)
+
+           <form action="" class="subscribe">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary submit">{{$row}}</button>
               </div>
+            </form>
+
+        @endforeach
+      </td>
+      <td>
+        @foreach( explode(",",$menu->lunch_menu) as $row)
+
+           <form action="" class="subscribe">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary submit">{{$row}}</button>
+              </div>
+            </form>
+
+        @endforeach
+      </td>
+      <td>
+        @foreach( explode(",",$menu->dinner_menu) as $row)
+
+           <form action="" class="subscribe">
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary submit">{{$row}}</button>
+              </div>
+            </form>
+
+        @endforeach
+      </td>
+    </tr>
+    @endforeach
+  </tbody>
+</table>
+
+                  
+
+                  
+
+
+                  
+                  
+            
     
             </div> <!-- .col-md-12 -->
           </div>
@@ -325,7 +270,7 @@
         <div class="row mb-5">
             <div class="col-md-7 section-heading">
               <span class="subheading-sm">Menus</span>
-              <h2 class="heading">Restaurant Menu</h2>
+              <h2 class="heading">Our Hostel Menu</h2>
             </div>
           </div>
 
@@ -347,110 +292,26 @@
               <div class="row">
                 <div class="col-md-12 block-13">
                   <div class="nonloop-block-13 owl-carousel">
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @foreach($items as $item)
+                    @if($item->categories_id == '1')
 
                     <div class="item">
                       <div class="block-34">
                         <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
+                          <a href="#"><img src="/storage/cover_images/{{$item->cover_image}}" alt="Image placeholder"style="height: 200px;width: 550px;"></a>
                         </div>
                         <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
+                          <h2 class="heading">{{$item->name}}</h2>
+                          <p></p>
+                          <div class="price"><span class="number">{{$item->categories->name}}</span></div>
                         </div>
                       </div>
                     </div>
+                    @endif
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @endforeach
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
+                    
                     
                   </div>
                 </div>
@@ -462,111 +323,25 @@
               <div class="row">
                 <div class="col-md-12 block-13">
                   <div class="nonloop-block-13 owl-carousel">
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                     @foreach($items as $item)
+                      @if($item->categories_id == '2')
 
                     <div class="item">
                       <div class="block-34">
                         <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
+                          <a href="#"><img src="/storage/cover_images/{{$item->cover_image}}" alt="Image placeholder"style="height: 200px;width: 500px;"></a>
                         </div>
                         <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
+                          <h2 class="heading">{{$item->name}}</h2>
+                          <p></p>
+                          <div class="price"><span class="number">{{$item->categories->name}}</span></div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @endif
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    
+                    @endforeach   
                   </div>
                 </div>
               </div>
@@ -575,110 +350,27 @@
               <div class="row">
                 <div class="col-md-12 block-13">
                   <div class="nonloop-block-13 owl-carousel">
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @foreach($items as $item)
+                      @if($item->categories_id == '3')
 
                     <div class="item">
                       <div class="block-34">
                         <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
+                          <a href="#"><img src="/storage/cover_images/{{$item->cover_image}}" alt="Image placeholder"style="height: 200px;width: 500px;"></a>
                         </div>
                         <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
+                          <h2 class="heading">{{$item->name}}</h2>
+                          <p></p>
+                          <div class="price"><span class="number">{{$item->categories->name}}</span></div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @endif
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
+                    @endforeach
 
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_1.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Asparagus</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">30.50</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_2.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Grilled Top Sirloin Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">23.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_3.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Egg &amp; Grilled Steak</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">45.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="block-34">
-                        <div class="image">
-                          <a href="#"><img src="images/menu_4.jpg" alt="Image placeholder"></a>
-                        </div>
-                        <div class="text">
-                          <h2 class="heading">Spicy Noodles</h2>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quo vel aut ab qui quas!</p>
-                          <div class="price"><sup>$</sup><span class="number">33.45</span></div>
-                        </div>
-                      </div>
-                    </div>
-
+               
                     
                   </div>
                 </div>
