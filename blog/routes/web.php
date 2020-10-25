@@ -60,6 +60,12 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 
 	Route::put('/menucreate','AdminController@menustore');
+	Route::get('/editmenu/{id}','AdminController@editmenu');
+	Route::put('/updatemenu/{id}','AdminController@updatemenu');
+	Route::delete('/deletemenu/{id}','AdminController@menudelete');
+
+
+	Route::get('/contactlist', 'AdminController@contactlist');
 
 
 
@@ -77,6 +83,8 @@ Route::get('/new-login', function () {
     return view('new-login');
 });
 Route::get('/', 'IndexController@index')->name('home');
+Route::get('/contact', 'IndexController@contact');
+Route::put('/contactstore', 'IndexController@contactstore');
 
 
 

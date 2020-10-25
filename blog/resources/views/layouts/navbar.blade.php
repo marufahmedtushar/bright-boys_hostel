@@ -90,6 +90,16 @@
             </a>
           </li>
 
+          <li class="nav-item ">
+            <a href="/contactlist" class="nav-link {{ 'contactlist' == request()->path() ? 'active' : '' }}">
+              <i class="fas fa-id-card-alt"></i>
+              <p>
+               Contact lists
+        
+              </p>
+            </a>
+          </li>
+
           
           
         </ul>

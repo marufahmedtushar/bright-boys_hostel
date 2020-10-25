@@ -12,6 +12,7 @@ use App\Bill;
 use App\Categories;
 use App\Item;
 use App\Menu;
+use App\Contact;
 class AdminController extends Controller
 {
      public function dashboard()
@@ -23,6 +24,7 @@ class AdminController extends Controller
         $totalstudents = Information::count();
         $totalcategories = Categories::count();
         $totalmenus= Item::count();
+        $totalcontact= Contact::count();
 
 
         return view('admin.dashboard',[
@@ -31,6 +33,7 @@ class AdminController extends Controller
             'totalstudents'=>$totalstudents,
             'totalcategories'=>$totalcategories,
             'totalmenus'=>$totalmenus,
+            'totalcontact'=>$totalcontact,
         ]);
 
     }
@@ -428,6 +431,43 @@ class AdminController extends Controller
         return redirect('/item');
 
     }
+
+    public function editmenu($id){
+        $menus = Menu::findOrFail($id);
+        $items = Item::all();
+        return view('admin.editmenu')->with('menus',$menus)->with('items',$items);
+
+    }
+
+
+
+    public function updatemenu(Request $request,$id){
+
+
+        $this->validate($request,[
+            'breakfast_menu' => 'required',
+            'lunch_menu' => 'required',
+            'dinner_menu' => 'required'
+        ]);
+
+
+
+        $menu = Menu::find($id);      
+        $menu->breakfast_menu = implode(",", $request->breakfast_menu);
+        $menu->lunch_menu = implode(",", $request->lunch_menu);
+        $menu->dinner_menu = implode(",", $request->dinner_menu);
+        $menu->update();
+
+        return redirect('/item');
+    }
+
+
+    public function contactlist()
+    {
+        $contacts = Contact::all();
+        return view('admin.contact')->with('contacts',$contacts);
+    }
+
 
 
 

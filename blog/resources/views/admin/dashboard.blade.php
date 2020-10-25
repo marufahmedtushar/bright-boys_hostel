@@ -69,13 +69,27 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-6">
+          <div class="col-lg-6 col-6">
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
                 <h3>{{$totalmenus}}</h3>
 
                 <p>Number of Meal Item</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-6">
+            <!-- small box -->
+            <div class="small-box bg-secondary">
+              <div class="inner">
+                <h3>{{$totalcontact}}</h3>
+
+                <p>Contacts</p>
               </div>
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>

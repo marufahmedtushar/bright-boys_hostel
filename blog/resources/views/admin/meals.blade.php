@@ -320,10 +320,10 @@
 
 
                   </td>
-                  <td><a class="btn btn-info btn-sm" href="#">
+                  <td><p><a class="btn btn-info btn-sm" href="/editmenu/{{$menu->id}}">
                         <i class="fas fa-pencil-alt"></i></a>
-                        <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal">
-                        <i class="fas fa-trash"></i></a>
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal" data-menuid="{{$menu->id}}">
+                        <i class="fas fa-trash"></i></a></p>
                   </td>
                   
                 </tr>
@@ -451,16 +451,16 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="" method="POST">
+            <form action="/deletemenu/{{$menu->id}}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
                 <div class="modal-body">
-                  <p>Are  You  Sure  to  Delete Item  ??</p>
-                  <input type="hidden" name="item_id" id="item_id">
+                  <p>Are  You  Sure  to  Delete Menu Schedule??</p>
+                  <input type="hidden" name="menu_id" id="menu_id">
                 </div>
                 <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-               <button class="btn btn-danger btn-sm toastrDefaultDelete">Delete </button>
+               <button class="btn btn-danger btn-sm toastrMenuDelete">Delete </button>
             </div>
             </form>
             
@@ -504,12 +504,23 @@ $(function () {
   modal.find('.modal-body #item_id').val(item_id)
 })
 
+  $('#modal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var menu_id = button.data('menuid') 
+  var modal = $(this)
+  modal.find('.modal-body #menu_id').val(menu_id)
+})
+
   $('.toastrDefaultDelete').click(function() {
       toastr.success('Meal Deleted')
     });
 
   $('.toastrDefaultSuccess').click(function() {
       toastr.success('Menu Created')
+    });
+
+  $('.toastrMenuDelete').click(function() {
+      toastr.success('Menu Deleted')
     });
 
   $('#showitems').on('show.bs.modal', function (event) {
