@@ -61,8 +61,8 @@
                   <td>{{$room->room_number}}</td>
                   <td> {{$room->created_at}}</td>
                   <td>{{$room->user->name}}</td>
-                  <td><a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-roomid="{{$room->id}}">
-                        <i class="fas fa-trash"></i> Delete</a>
+                  <td><a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-roomid="{{$room->id}}"data-roomnumber="{{$room->room_number}}">
+                        <i class="fas fa-trash"></i></a>
                   </td>
                   
                 </tr>
@@ -90,8 +90,8 @@
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New room</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabel">Add New room</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -120,7 +120,7 @@
       <div class="modal  fade" id="modal-danger">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-danger">
               <h4 class="modal-title">Delete Room</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -132,6 +132,9 @@
                 <div class="modal-body">
                   <p>Are  You  Sure  to  Delete Room  ??</p>
                   <input type="hidden" name="room_id" id="room_id">
+                  <div class="form-group">
+                    <input type="text" class="form-control"  id="room_number" style="border:3px solid #ffffff;border-radius:10px;">
+                </div>
                 </div>
                 <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -172,8 +175,10 @@
    $('#modal-danger').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var room_id = button.data('roomid') 
+  var room_number = button.data('roomnumber') 
   var modal = $(this)
   modal.find('.modal-body #room_id').val(room_id)
+  modal.find('.modal-body #room_number').val(room_number)
 })
 </script>
 

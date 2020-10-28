@@ -50,6 +50,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Bill');
     }
+
+    public function rating()
+    {
+        return $this->hasMany('App\Rating');
+    }
     
 
 }

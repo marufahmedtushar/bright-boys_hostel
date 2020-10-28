@@ -26,8 +26,7 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::resource('/users','UserController');
 
 	Route::get('/users','AdminController@users');
-	Route::get('/userroleedit/{id}','AdminController@userroleedit');
-	Route::put('/userroleupdate/{id}','AdminController@userroleupdate');
+	Route::put('/userroleupdate','AdminController@userroleupdate');
 	Route::delete('/deleteuser/{id}','AdminController@userdelete');
 
 
@@ -35,6 +34,8 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::put('/infocreate','AdminController@infostore');
 	Route::get('/editinfo/{id}','AdminController@editinfo');
 	Route::put('/updateinfo/{id}','AdminController@updateinfo');
+	Route::put('/infoupdate','AdminController@infoupdate');
+	Route::delete('/deletestudent/{id}','AdminController@studentdelete');
 
 
 	Route::put('/billcreate','AdminController@billstore');
@@ -43,7 +44,7 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::get('/bills','AdminController@bills');
 	Route::get('/viewbill/{id}','AdminController@viewbill');
 	Route::get('/editbill/{id}','AdminController@editbill');
-	Route::put('/updatebill/{id}','AdminController@updatebill');
+	Route::put('/updatebill','AdminController@updatebill');
 
 
 
@@ -62,6 +63,7 @@ Route::group(['middleware' => ['auth','admin']],function() {
 	Route::put('/menucreate','AdminController@menustore');
 	Route::get('/editmenu/{id}','AdminController@editmenu');
 	Route::put('/updatemenu/{id}','AdminController@updatemenu');
+	Route::put('/menuupdate','AdminController@menuupdate');
 	Route::delete('/deletemenu/{id}','AdminController@menudelete');
 
 
@@ -75,6 +77,12 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 });
 
+
+Route::group(['middleware' => ['auth','user']],function() {
+Route::put('/rating','IndexController@ratingstore');
+
+});
+
 Auth::routes();
 Route::get('/new-register', function () {
     return view('new-register');
@@ -85,7 +93,7 @@ Route::get('/new-login', function () {
 Route::get('/', 'IndexController@index')->name('home');
 Route::get('/contact', 'IndexController@contact');
 Route::put('/contactstore', 'IndexController@contactstore');
-
+Route::get('/about', 'IndexController@about');
 
 
 

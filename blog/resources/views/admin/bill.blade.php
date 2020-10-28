@@ -52,8 +52,9 @@
                     </span>
                     @endif
                   </td>
-                  <td><a class="btn btn-primary btn-sm" href="/viewbill/{{$bill->id}}"><i class="fas fa-eye"></i> View Bill </a>
-                    <a class="btn btn-info btn-sm" href="/editbill/{{$bill->id}}"><i class="fas fa-pencil-alt"></i> Make Sure to be Paid </a>
+                  <td><a class="btn btn-primary btn-sm" href="/viewbill/{{$bill->id}}"><i class="fas fa-eye"></i>   <i class="fas fa-file-invoice-dollar"></i></a>
+
+                    <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#editbill" data-id="{{$bill->id}}"data-billid="{{$bill->id}}"data-name="{{$bill->name}}"data-email="{{$bill->email}}"data-amount="{{$bill->totalbill}}"data-months="{{$bill->months}}"data-paymentstatus="{{$bill->paymentstatus}}"><i class="fas fa-pencil-alt"></i></a>
                   </td>
                   
                 </tr>
@@ -64,6 +65,76 @@
                 </tbody>
                 
               </table>
+
+              <div class="modal fade" id="editbill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-info">
+        <h5 class="modal-title" id="exampleModalLabel">Make Sure to be Paid</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/updatebill" method="POST">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+
+
+                  <div class="form-group">
+                    <input type="hidden" class="form-control" name="id" id="id">
+                  </div>
+
+                  <div class="form-group">
+
+                  <label>Id:</label>
+                    <input type="text" class="form-control"  id="bill_id">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" class="form-control"  id="name">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Email address:</label>
+                    <input type="email" class="form-control"  id="email">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Amount:</label>
+                    <input type="text" class="form-control"  id="amount">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Months:</label>
+                    <input type="text" class="form-control" id="months">
+                  </div>
+
+                  <div class="form-group">
+                        <label>Bill Type :</label>
+                        <select class="custom-select" id="paymentstatus" name="paymentstatus"class="form-control">
+                          <option></option>
+                          <option value="Due">Due</option>
+                          <option value="Paid">Paid</option>
+                        </select>
+                      </div>
+
+        
+          
+          
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button class="btn btn-primary toastrDefaultSuccess">Submit</button>
+      
+        </form>
+      </div>
+
+
+
+      
+          </div>
+      </div>
+  </div>
 
 
              
@@ -84,6 +155,31 @@
       "autoWidth": false,
     });
   });
+
+
+
+    $('#editbill').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id = button.data('id') 
+  var bill_id = button.data('billid') 
+  var name = button.data('name') 
+  var email = button.data('email') 
+  var amount = button.data('amount') 
+  var months = button.data('months') 
+  var paymentstatus = button.data('paymentstatus') 
+
+
+  var modal = $(this)
+  modal.find('.modal-body #id').val(id)
+  modal.find('.modal-body #bill_id').val(bill_id)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #email').val(email)
+  modal.find('.modal-body #amount').val(amount)
+  modal.find('.modal-body #months').val(months)
+  modal.find('.modal-body #paymentstatus').val(paymentstatus)
+
+
+})
 
 
 

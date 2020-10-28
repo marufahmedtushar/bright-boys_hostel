@@ -82,16 +82,12 @@ class AdminController extends Controller
     }
 
 
-    public function userroleedit(Request $request,$id){
-        $users = User::findOrFail($id);
-        return view('admin.edit')->with('users',$users);
-
-    }
+ 
 
 
-    public function userroleupdate(Request $request,$id){
-        $users = User::find($id);
-        $users->user_type = $request->input('usertype');
+    public function userroleupdate(Request $request){
+        $users = User::findOrFail($request->id);
+        $users->user_type = $request->input('user_type');
         $users->update();
 
         return redirect('/users');
@@ -103,6 +99,19 @@ class AdminController extends Controller
            $users = User::all();
            $bills = Bill::all();
         return view('admin.students')->with('infos',$infos)->with('rooms',$rooms)->with('users',$users)->with('bills',$bills);
+    }
+
+
+
+    public function studentdelete(Request $request)
+    {
+
+        $infos = Information::findOrFail($request->id);
+        $infos->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/students');
+
     }
 
 
@@ -158,6 +167,19 @@ class AdminController extends Controller
 
     public function updateinfo(Request $request,$id){
         $infos = Information::find($id);
+        $infos->name = $request->input('name');
+        $infos->university = $request->input('university');
+        $infos->department = $request->input('department');
+        $infos->addresss = $request->input('address');
+        $infos->room_id = $request->input('room_id');
+        $infos->room_number = $request->input('room_number');
+        $infos->update();
+
+        return redirect('/students');
+    }
+
+    public function infoupdate(Request $request){
+        $infos = Information::findOrFail($request->id);
         $infos->name = $request->input('name');
         $infos->university = $request->input('university');
         $infos->department = $request->input('department');
@@ -234,7 +256,7 @@ class AdminController extends Controller
 
     }
 
-    public function updatebill(Request $request,$id){
+    public function updatebill(Request $request){
 
 
         $this->validate($request,[
@@ -243,7 +265,7 @@ class AdminController extends Controller
 
 
 
-        $bills = Bill::find($id);
+        $bills = Bill::findOrFail($request->id);
         $bills->paymentstatus = $request->input('paymentstatus');
         $bills->update();
 
@@ -441,18 +463,18 @@ class AdminController extends Controller
 
 
 
-    public function updatemenu(Request $request,$id){
+    public function menuupdate(Request $request){
 
 
         $this->validate($request,[
             'breakfast_menu' => 'required',
             'lunch_menu' => 'required',
-            'dinner_menu' => 'required'
+            'dinner_menu' => 'required',
         ]);
 
 
 
-        $menu = Menu::find($id);      
+        $menu = Menu::findOrFail($request->id);      
         $menu->breakfast_menu = implode(",", $request->breakfast_menu);
         $menu->lunch_menu = implode(",", $request->lunch_menu);
         $menu->dinner_menu = implode(",", $request->dinner_menu);
@@ -460,6 +482,8 @@ class AdminController extends Controller
 
         return redirect('/item');
     }
+
+
 
 
     public function contactlist()

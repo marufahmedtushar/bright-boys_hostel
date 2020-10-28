@@ -43,13 +43,15 @@
                   <td>{{$info->id}}</td>
                   <td>{{$info->name}}</td>
                   <td>{{$info->room_number}}</td>
-                  <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#info"  data-id="{{$info->id}}"data-name="{{$info->name}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-eye"></i> View Details </button>
+                  <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#info"  data-id="{{$info->id}}"data-name="{{$info->name}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-eye"></i></button>
 
+                  <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#infoedit"  data-id="{{$info->id}}"data-infoid="{{$info->id}}"data-name="{{$info->name}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}" data-roomid="{{$info->room_id}}"><i class="fas fa-pencil-alt"></i></button>
 
-
-                    <a class="btn btn-info btn-sm" href="/editinfo/{{$info->id}}"><i class="fas fa-pencil-alt"></i> Edit Details</a>
                   
-                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#bill" data-name="{{$info->name}}"data-email="{{$info->email}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-plus-circle"></i> Add bill </button>
+                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#bill" data-name="{{$info->name}}"data-email="{{$info->email}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-plus-circle"></i> <i class="fas fa-file-invoice-dollar"></i></button>
+
+                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-id="{{$info->id}}" data-name="{{$info->name}}">
+                        <i class="fas fa-trash"></i></a>
                   </td>
                   
                 </tr>
@@ -69,7 +71,7 @@
               <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-success">
         <h5 class="modal-title" id="exampleModalLabel">New Student Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -153,8 +155,8 @@
 <div class="modal fade" id="bill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New room</h5>
+      <div class="modal-header bg-success">
+        <h5 class="modal-title" id="exampleModalLabel">Create Bill</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -401,7 +403,7 @@
 <div class="modal fade" id="info" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-primary">
         <h5 class="modal-title" id="exampleModalLabel">Student's Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -452,7 +454,7 @@
           
           
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-primary toastrDefaultSuccess">Submit</button>
+        
       
         </form>
       </div>
@@ -463,29 +465,33 @@
   </div>
 </div>
 
-
-
-
-
-<div class="modal fade" id="showbill" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach($infos as $info)
+<div class="modal fade" id="infoedit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
+      <div class="modal-header bg-info">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Student's Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="/infoupdate" method="POST">
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
           
 
           <div class="form-group">
-            <label >id:</label>
-            <input type="text" name="id"class="form-control" id="id" >
+            <input type="hidden" name="id"class="form-control" id="id" >
           </div>
+
+
+          <div class="form-group">
+                  <label>Id:</label>
+                  <input type="text"  class="form-control" id="info_id">
+                  </div>
+
+          
 
           <div class="form-group">
             <label >name:</label>
@@ -498,12 +504,45 @@
             <input type="text" name="email"class="form-control" id="email" >
           </div>
 
-          
+          <div class="form-group">
+            <label >university:</label>
+            <input type="text" name="university"class="form-control" id="university" >
+          </div>
 
           <div class="form-group">
-            <label >room number:</label>
-            <input type="text" name="room_number"class="form-control" id="room_number" >
+            <label >department:</label>
+            <input type="text" name="department"class="form-control" id="department" >
           </div>
+
+          <div class="form-group">
+            <label >address:</label>
+            <input type="text" name="address"class="form-control" id="address" >
+          </div>
+
+
+          <div class="form-group">
+                        <label>edit appointed   room :</label>
+                        <select class="custom-select" name="room_id"class="form-control" id="room_id"  required>
+                 
+                         <option selected>{{$info->room_id}}</option>
+                                 @foreach($rooms as $room)
+                          <option value="{{$room->id}}">{{$room->room_number}}-->{{$room->id}}</option>
+                        @endforeach
+                        </select>
+                      </div>
+
+
+
+          <div class="form-group">
+                        <label>edit   room :</label>
+                        <select class="custom-select" name="room_number"class="form-control" id="room_number"  required>
+
+                          <option selected>{{$info->room_number}}</option>
+                         @foreach($rooms as $room)
+                          <option value="{{$room->room_number}}">{{$room->room_number}}</option>
+                        @endforeach
+                        </select>
+                      </div>
 
           
           
@@ -518,6 +557,53 @@
     </div>
   </div>
 </div>
+
+@endforeach
+
+
+
+
+@foreach($infos as $info)
+
+<div class="modal  fade" id="modal-danger">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h4 class="modal-title">Delete Student</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/deletestudent/{{$info->id}}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <div class="modal-body">
+                  <p>Are  You  Sure  to  Delete This Student  ??</p>
+                  <input type="hidden" name="id" id="id" >
+
+                <div class="form-group">
+                    <input type="text" class="form-control"  id="name" style="border:3px solid #ffffff;border-radius:10px;">
+                </div>
+
+                </div>
+                <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-danger btn-sm toastrDefaultDelete">Delete </button>
+            </div>
+            </form>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+      @endforeach
+
+
+
+
+
 
 
 
@@ -564,6 +650,10 @@
       toastr.success('New student added')
     });
 
+  $('.toastrDefaultDelete').click(function() {
+      toastr.success('Student deleted')
+    });
+
 
 
   $('#info').on('show.bs.modal', function (event) {
@@ -587,6 +677,31 @@
 
 })
 
+  $('#infoedit').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var id = button.data('id') 
+  var info_id = button.data('infoid') 
+  var name = button.data('name') 
+  var email = button.data('email') 
+  var university = button.data('university') 
+  var department = button.data('department') 
+  var address = button.data('address') 
+  var room_number = button.data('roomnumber') 
+  var room_id = button.data('roomid') 
+
+  var modal = $(this)
+  modal.find('.modal-body #id').val(id)
+  modal.find('.modal-body #info_id').val(info_id)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #email').val(email)
+  modal.find('.modal-body #university').val(university)
+  modal.find('.modal-body #department').val(department)
+  modal.find('.modal-body #address').val(address)
+  modal.find('.modal-body #room_number').val(room_number)
+  modal.find('.modal-body #room_id').val(room_id)
+
+})
+
   $('#showbill').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('id') 
@@ -600,6 +715,16 @@
   modal.find('.modal-body #email').val(email)
   modal.find('.modal-body #room_number').val(room_number)
 
+})
+
+
+  $('#modal-danger').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var info_id = button.data('id') 
+  var name = button.data('name') 
+  var modal = $(this)
+  modal.find('.modal-body #id').val(info_id)
+  modal.find('.modal-body #name').val(name)
 })
 
 

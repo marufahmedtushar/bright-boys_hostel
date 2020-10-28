@@ -39,9 +39,12 @@
                   <td>{{$user->email}}</td>
                   <td><span class="badge badge-success">{{$user->user_type}}</span></td>
                   <td> {{$user->created_at}}</td>
-                  <td><a class="btn btn-info btn-sm" href="/userroleedit/{{$user->id}}"><i class="fas fa-pencil-alt"></i> Edit</a>
-                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-userid="{{$user->id}}">
-                        <i class="fas fa-trash"></i> Delete</a>
+                  <td>
+
+                  <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#useredit" data-id="{{$user->id}}"data-userid="{{$user->id}}"data-name="{{$user->name}}"data-email="{{$user->email}}"data-usertype="{{$user->user_type}}"><i class="fas fa-pencil-alt"></i></a>
+
+                  <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-userid="{{$user->id}}"data-name="{{$user->name}}">
+                        <i class="fas fa-trash"></i></a>
                      
                       
                   </td>
@@ -55,50 +58,48 @@
                 
               </table>
 
-           
-              <div class="modal fade" id="edituser">
+           @foreach($users as $user)
+              <div class="modal fade" id="useredit">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">User Role</h5>
+      <div class="modal-header bg-info">
+        <h5 class="modal-title" id="exampleModalLabel">User Role Edit</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form id="editform"action="{{ route('users.update',$user->id)}}" method="POST">
+        <form action="/userroleupdate" method="POST">
                     {{ csrf_field() }}
-                    {{ method_field('patch') }}
+                    {{ method_field('PUT') }}
           <div class="form-group">
-                 <input type="hidden" name="user_id"class="form-control" id="user_id" value="{{$user->id}}">
+              <input type="hidden" name="id"class="form-control" id="id">
           </div>
 
           <div class="form-group">
-            <label>Id :</label>
-                 <input type="text" name="id"class="form-control" id="id">
+                <label>Id:</label>
+                <input type="text" class="form-control"  id="user_id">
           </div>
 
           <div class="form-group">
-            <label>Name :</label>
-                 <input type="text" name="name"class="form-control" id="name">
+                <label>Name:</label>
+                <input type="text" class="form-control"  id="name">
+          </div>
+          <div class="form-group">
+                <label>Email address:</label>
+                <input type="email" class="form-control"  id="email">
           </div>
 
-         <!--  <div class="form-group">
-            <p>Give a role :</p>
-            <input type="text" name="user_type"class="form-control" id="user_type">
-          </div> -->
-
-          
-
           <div class="form-group">
-                        <label>User Typre :</label>
-                        <select class="custom-select" name="user_type"class="form-control" id="user_type" required>
-                          <option value="admin">admin</option>
-                          <option value="user">user</option>
-                          <option value="student">student</option>
-                          <option value=" "> </option>
-                        </select>
-                      </div>
+                <label>User Type :</label>
+                <select class="custom-select" name="user_type"class="form-control" id="user_type">
+                      <option selected>{{$user->user_type}}</option>
+                      <option value="admin">admin</option>
+                      <option value="user">user</option>
+                      <option value="student">student</option>
+                      <option value=" "> </option>
+                </select>
+          </div>
           
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button class="btn btn-primary toastrDefaultSuccess">Submit</button>
@@ -108,14 +109,17 @@
       
     </div>
   </div>
+
+ 
 </div>
+ @endforeach
 
         @foreach($users as $user)
 
 <div class="modal  fade" id="modal-danger">
         <div class="modal-dialog modal-sm">
           <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-danger">
               <h4 class="modal-title">Delete User</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -125,8 +129,12 @@
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
                 <div class="modal-body">
-                  <p>Are  You  Sure  to  Delete Room  ??</p>
+                  <p>Are  You  Sure  to  Delete This User??</p>
                   <input type="hidden" name="user_id" id="user_id">
+
+                  <div class="form-group">
+                    <input type="text" class="form-control"  id="name" style="border:3px solid #ffffff;border-radius:10px;">
+                </div>
                 </div>
                 <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -164,16 +172,18 @@
     });
   });
 
-	$('#edituser').on('show.bs.modal', function (event) {
+	$('#useredit').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('id') 
   var user_id = button.data('userid') 
-  var user_name = button.data('username') 
+  var name = button.data('name') 
+  var email = button.data('email') 
   var user_type = button.data('usertype') 
   var modal = $(this)
-  modal.find('.modal-body #user_id').val(user_id)
   modal.find('.modal-body #id').val(id)
-  modal.find('.modal-body #name').val(user_name)
+  modal.find('.modal-body #user_id').val(user_id)
+  modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #email').val(email)
   modal.find('.modal-body #user_type').val(user_type)
 })
 
@@ -192,8 +202,10 @@
 $('#modal-danger').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var user_id = button.data('userid') 
+  var name = button.data('name') 
   var modal = $(this)
   modal.find('.modal-body #user_id').val(user_id)
+  modal.find('.modal-body #name').val(name)
 })
 
 $('.toastrDefaultDelete').click(function() {

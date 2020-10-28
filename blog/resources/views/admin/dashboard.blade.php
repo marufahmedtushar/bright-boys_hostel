@@ -22,7 +22,7 @@
                 <p>Rooms</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fas fa-building"></i>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
                 <p>Users</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fas fa-user"></i>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
                 <p>Students</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="fas fa-user-graduate"></i>
               </div>
             </div>
           </div>
@@ -64,7 +64,7 @@
                 <p>Categories of Meal</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-utensils"></i>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
                 <p>Number of Meal Item</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-drumstick-bite"></i>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
                 <p>Contacts</p>
               </div>
               <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-id-card-alt"></i>
               </div>
             </div>
           </div>
