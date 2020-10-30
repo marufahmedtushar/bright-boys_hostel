@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Edit Meal')
+@section('title','Admin | Edit Meal')
 
 
 

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Bills')
+@section('title','Admin | Bills')
 
 
 
@@ -55,6 +55,9 @@
                   <td><a class="btn btn-primary btn-sm" href="/viewbill/{{$bill->id}}"><i class="fas fa-eye"></i>   <i class="fas fa-file-invoice-dollar"></i></a>
 
                     <a class="btn btn-info btn-sm" data-toggle="modal" data-target="#editbill" data-id="{{$bill->id}}"data-billid="{{$bill->id}}"data-name="{{$bill->name}}"data-email="{{$bill->email}}"data-amount="{{$bill->totalbill}}"data-months="{{$bill->months}}"data-paymentstatus="{{$bill->paymentstatus}}"><i class="fas fa-pencil-alt"></i></a>
+
+                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#modal-danger" data-billid="{{$bill->id}}" data-name="{{$bill->name}}">
+                        <i class="fas fa-trash"></i></a>
                   </td>
                   
                 </tr>
@@ -137,6 +140,43 @@
   </div>
 
 
+
+ @foreach($bills as $bill)
+
+<div class="modal  fade" id="modal-danger">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header bg-danger">
+              <h4 class="modal-title">Delete Menu</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="/deletebill/{{$bill->id}}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('delete') }}
+                <div class="modal-body">
+                  <p>Are  You  Sure  to  Delete This Student's Bill Named</p>
+                  <input type="hidden" name="bill_id" id="bill_id">
+                  <div class="form-group">
+                    <input type="text" class="form-control"  id="name" style="border:3px solid #ffffff;border-radius:10px;">
+                </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               <button class="btn btn-danger btn-sm toastrBillDelete">Delete </button>
+            </div>
+            </form>
+            
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+
+      @endforeach
+
+
              
             </div>
           </div>
@@ -180,6 +220,20 @@
 
 
 })
+
+    $('#modal-danger').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var bill_id = button.data('billid') 
+  var name = button.data('name') 
+  var modal = $(this)
+  modal.find('.modal-body #bill_id').val(bill_id)
+  modal.find('.modal-body #name').val(name)
+})
+
+    $('.toastrBillDelete').click(function() {
+      toastr.success('Bill Deleted')
+    });
+
 
 
 

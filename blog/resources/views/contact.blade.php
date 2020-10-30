@@ -5,6 +5,8 @@
     <title>Bright Boys Hostel | Contact </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{{asset('images/hostel.ico')}}" rel="shortcut icon">
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
 
@@ -86,8 +88,8 @@
       <div class="row mb-5">
         <div class="col-md-6 col-lg-4">
           <h3 class="heading-section">About Us</h3>
-          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt.</p>
-          <p><a href="#" class="btn btn-primary px-4">Button</a></p>
+          <p class="mb-5">Our motto  is to  give  the  best accommodation facilities  to  our students.We provide the best luxery rooms and foods to  our students.We also provide 24/7 imergency medical service to  our  students.In our students  will  get fast wifi service..</p>
+          <p><a href="/" class="btn btn-primary px-4">Home</a></p>
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="block-23">
@@ -96,7 +98,7 @@
                 <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
+                <li><span class="icon icon-clock-o"></span><span class="text">24/7 service</span></li>
               </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','List of Meal')
+@section('title','Admin | List of Meal')
 
 
 
@@ -196,11 +196,7 @@
                          <input type="text"  class="form-control" id="cat_id" >
                       </div>
 
-                      <div class="form-group">
-                    <label>cover_image:</label>
-                     <img id="img" class="img img-thumbnail" src="{{URL::asset('storage/cover_images/'.$item->cover_image)}}" alt="Image placeholder"style="height: 100px;width: 120px;">
-                    <input type="hidden" class="form-control" id="cover_image">
-                  </div>
+                      
 
                       
 
@@ -238,7 +234,7 @@
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
                 <div class="modal-body">
-                  <p>Are  You  Sure  to  Delete This  Item  ??</p>
+                  <p>Are  You  Sure  to  Delete This  Item  Called</p>
                   <input type="hidden" name="item_id" id="item_id">
                   <div class="form-group">
                     <input type="text" class="form-control"  id="name" style="border:3px solid #ffffff;border-radius:10px;">
@@ -588,7 +584,7 @@
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
                 <div class="modal-body">
-                  <p>Are  You  Sure  to  Delete This Menu Schedule of--></p>
+                  <p>Are  You  Sure  to  Delete This Menu Schedule of</p>
                   <input type="hidden" name="menu_id" id="menu_id">
                   <div class="form-group">
                     <input type="text" class="form-control"  id="name" style="border:3px solid #ffffff;border-radius:10px;">

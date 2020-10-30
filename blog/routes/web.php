@@ -43,13 +43,15 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 	Route::get('/bills','AdminController@bills');
 	Route::get('/viewbill/{id}','AdminController@viewbill');
-	Route::get('/editbill/{id}','AdminController@editbill');
+	Route::delete('/deletebill/{id}','AdminController@billdelete');
 	Route::put('/updatebill','AdminController@updatebill');
 
 
 
 	Route::get('/categories','AdminController@categories');
 	Route::put('/categoriescreate','AdminController@categorystore');
+	Route::put('/catupdate','AdminController@updatecat');
+	Route::delete('/deletecat/{id}','AdminController@catdelete');
 
 
 	Route::get('/item','AdminController@item');
@@ -61,13 +63,19 @@ Route::group(['middleware' => ['auth','admin']],function() {
 
 
 	Route::put('/menucreate','AdminController@menustore');
-	Route::get('/editmenu/{id}','AdminController@editmenu');
 	Route::put('/updatemenu/{id}','AdminController@updatemenu');
 	Route::put('/menuupdate','AdminController@menuupdate');
 	Route::delete('/deletemenu/{id}','AdminController@menudelete');
 
 
 	Route::get('/contactlist', 'AdminController@contactlist');
+	Route::delete('/deletecontact/{id}','AdminController@contactdelete');
+
+
+	Route::get('/rating', 'AdminController@rating');
+	Route::delete('/deleterating/{id}','AdminController@ratingdelete');
+
+	
 
 
 

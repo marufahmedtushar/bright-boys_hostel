@@ -13,6 +13,7 @@ use App\Categories;
 use App\Item;
 use App\Menu;
 use App\Contact;
+use App\Rating;
 class AdminController extends Controller
 {
      public function dashboard()
@@ -25,6 +26,7 @@ class AdminController extends Controller
         $totalcategories = Categories::count();
         $totalmenus= Item::count();
         $totalcontact= Contact::count();
+        $totalrating= Rating::count();
 
 
         return view('admin.dashboard',[
@@ -34,6 +36,8 @@ class AdminController extends Controller
             'totalcategories'=>$totalcategories,
             'totalmenus'=>$totalmenus,
             'totalcontact'=>$totalcontact,
+            'totalcontact'=>$totalcontact,
+            'totalrating'=>$totalrating,
         ]);
 
     }
@@ -250,11 +254,7 @@ class AdminController extends Controller
         return view('admin.bill')->with('bills',$bills);
     }
 
-    public function editbill($id){
-        $bills = Bill::findOrFail($id);
-        return view('admin.editbill')->with('bills',$bills);
-
-    }
+    
 
     public function updatebill(Request $request){
 
@@ -270,6 +270,17 @@ class AdminController extends Controller
         $bills->update();
 
         return redirect('/bills');
+    }
+
+    public function billdelete(Request $request)
+    {
+
+        $bills = Bill::findOrFail($request->bill_id);
+        $bills->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/students');
+
     }
 
 
@@ -296,6 +307,36 @@ class AdminController extends Controller
         $categories->save();
 
         return redirect('/categories');
+    }
+
+
+
+    public function updatecat(Request $request){
+
+
+        $this->validate($request,[
+            'name' => 'required',
+        ]);
+
+
+
+        $cat = Categories::findOrFail($request->id);
+        $cat->name = $request->input('name');
+        $cat->update();
+
+        return redirect('/categories');
+    }
+
+
+
+    public function catdelete(Request $request)
+    {
+
+        $cat = Categories::findOrFail($request->id);
+        $cat->delete();
+
+        return redirect('/categories');
+
     }
 
 
@@ -454,14 +495,7 @@ class AdminController extends Controller
 
     }
 
-    public function editmenu($id){
-        $menus = Menu::findOrFail($id);
-        $items = Item::all();
-        return view('admin.editmenu')->with('menus',$menus)->with('items',$items);
-
-    }
-
-
+    
 
     public function menuupdate(Request $request){
 
@@ -491,6 +525,37 @@ class AdminController extends Controller
         $contacts = Contact::all();
         return view('admin.contact')->with('contacts',$contacts);
     }
+
+    public function contactdelete(Request $request)
+    {
+
+        $contacts = Contact::findOrFail($request->id);
+        $contacts->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/contactlist');
+
+    }
+
+
+    public function rating()
+    {
+        $ratings = Rating::all();
+        return view('admin.rating')->with('ratings',$ratings);
+    }
+
+
+    public function ratingdelete(Request $request)
+    {
+
+        $ratings = Rating::findOrFail($request->id);
+        $ratings->delete();
+
+        // toastr()->success('Room Deleted Successfully');
+        return redirect('/rating');
+
+    }
+
 
 
 

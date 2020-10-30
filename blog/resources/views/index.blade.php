@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <link href="{{asset('images/hostel.ico')}}" rel="shortcut icon">
 
     <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
@@ -81,7 +82,7 @@
             <div class="icon"><span class="flaticon-double-bed"></span></div>
             <div class="media-body">
               <h3 class="heading">Luxury Rooms</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              <p>We try to  provide  the  best  rooms  to  the  students.</p>
             </div>
           </div>      
         </div>
@@ -90,16 +91,7 @@
             <div class="icon"><span class="flaticon-wifi"></span></div>
             <div class="media-body">
               <h3 class="heading">Fast &amp; Free Wifi</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="media block-6">
-            <div class="icon"><span class="flaticon-customer-service"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Call Us 24/7</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              <p>The  stident's of  our  hostel  will  get  24/7 Wifi service.</p>
             </div>
           </div>
         </div>
@@ -108,26 +100,17 @@
           <div class="media block-6">
             <div class="icon"><span class="flaticon-taxi"></span></div>
             <div class="media-body">
-              <h3 class="heading">Travel Accomodation</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              <h3 class="heading">Imergency Service</h3>
+              <p>We provide 24/7 imergency  service  to  our students.</p>
             </div>
           </div>      
         </div>
         <div class="col-md-6 col-lg-4">
           <div class="media block-6">
-            <div class="icon"><span class="flaticon-credit-card"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Accepts Credit Card</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="media block-6">
             <div class="icon"><span class="flaticon-dinner"></span></div>
             <div class="media-body">
-              <h3 class="heading">Restaurant</h3>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+              <h3 class="heading">Meals</h3>
+              <p>We provide  the  best  food  to  our  students.</p>
             </div>
           </div>
         </div>
@@ -147,7 +130,7 @@
             <div class="col-md-7 section-heading">
               <span class="subheading-sm">Our Dishes for the Students</span>
               <h2 class="heading">Meal Chart</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, iusto, omnis! Quidem, sint, impedit? Dicta eaque delectus tempora hic, corporis velit doloremque quod quam laborum, nobis iusto autem culpa quaerat!</p>
+              <p></p>
             </div>
           </div>
 
@@ -377,8 +360,8 @@
       <div class="row mb-5">
         <div class="col-md-6 col-lg-4">
           <h3 class="heading-section">About Us</h3>
-          <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga aliquid. Atque dolore esse veritatis iusto eaque perferendis non dolorem fugiat voluptatibus vitae error ad itaque inventore accusantium tempore dolores sunt.</p>
-          <p><a href="#" class="btn btn-primary px-4">Button</a></p>
+          <p class="mb-5">Our motto  is to  give  the  best accommodation facilities  to  our students.We provide the best luxery rooms and foods to  our students.We also provide 24/7 imergency medical service to  our  students.In our students  will  get fast wifi service..</p>
+          <p><a href="/" class="btn btn-primary px-4">Home</a></p>
         </div>
     
         <div class="col-md-6 col-lg-4">
@@ -388,7 +371,7 @@
                 <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-                <li><span class="icon icon-clock-o"></span><span class="text">Monday &mdash; Friday 8:00am - 5:00pm</span></li>
+                <li><span class="icon icon-clock-o"></span><span class="text">24/7 service</span></li>
               </ul>
             </div>
         </div>

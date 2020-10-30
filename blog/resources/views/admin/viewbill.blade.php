@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','View Bill')
+@section('title','Admin | View Bill')
 
 
 

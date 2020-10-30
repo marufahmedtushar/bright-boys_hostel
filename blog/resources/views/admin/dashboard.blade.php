@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','Dashboard')
+@section('title','Admin | Dashboard')
 
 
 
@@ -43,7 +43,7 @@
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
+            <div class="small-box bg-warning" style="color: #ffffff!important;">
               <div class="inner">
                 <h3>{{$totalstudents}}</h3>
 
@@ -93,6 +93,20 @@
               </div>
               <div class="icon">
                 <i class="fas fa-id-card-alt"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12 col-6">
+            <!-- small box -->
+            <div class="small-box" style="background-color: #009c68!important;color: #ffffff!important;">
+              <div class="inner">
+                <h3>{{$totalrating}}</h3>
+
+                <p>Ratings</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-star"></i>
               </div>
             </div>
           </div>
