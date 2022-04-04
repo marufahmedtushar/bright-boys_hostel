@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('usertype')->nullable();
             $table->string('email')->unique();
+            $table->string('user_type')->default('student')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -33,6 +34,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('user_type')->default('student')->nullable();
+        });
     }
 }

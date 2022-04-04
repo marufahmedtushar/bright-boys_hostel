@@ -28,6 +28,10 @@ class CreateInformationTable extends Migration
             $table->unsignedBigInteger('room_id');
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
+        Schema::table('information', function (Blueprint $table) {
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

@@ -134,6 +134,7 @@ class AdminController extends Controller
 
         $this->validate($request,[
             'name' => 'required',
+            'student_id' => 'required',
             'email' => 'required',
             'university' => 'required',
             'department' => 'required',
@@ -149,6 +150,7 @@ class AdminController extends Controller
 
         $infos = new Information();
         $infos->name = $request->input('name');
+        $infos->student_id = $request->input('student_id');
         $infos->email = $request->input('email');
         $infos->university = $request->input('university');
         $infos->department = $request->input('department');

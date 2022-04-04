@@ -10,6 +10,8 @@ use App\Menu;
 use App\Contact;
 use App\Rating;
 use App\User;
+use App\Information;
+use App\Bill;
 class IndexController extends Controller
 {
     public function index()
@@ -17,7 +19,9 @@ class IndexController extends Controller
     	$items = Item::all();
     	$menus = Menu::all();
         $users = User::all();
-        return view('index')->with('items',$items)->with('menus',$menus)->with('users',$users);
+        $infos = Information::all();
+        $bills = Bill::all();
+        return view('index')->with('items',$items)->with('menus',$menus)->with('users',$users)->with('infos',$infos)->with('bills',$bills);
     }
 
     public function contact()

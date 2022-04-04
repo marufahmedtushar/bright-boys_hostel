@@ -43,7 +43,7 @@
                   <td>{{$info->id}}</td>
                   <td>{{$info->name}}</td>
                   <td>{{$info->room_number}}</td>
-                  <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#info"  data-id="{{$info->id}}"data-name="{{$info->name}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-eye"></i></button>
+                  <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#info"  data-id="{{$info->id}}"data-name="{{$info->name}}"data-student_id="{{$info->student_id}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}"><i class="fas fa-eye"></i></button>
 
                   <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#infoedit"  data-id="{{$info->id}}"data-infoid="{{$info->id}}"data-name="{{$info->name}}"data-email="{{$info->email}}"data-university="{{$info->university}}"data-department="{{$info->department}}"data-address="{{$info->addresss}}"data-roomnumber="{{$info->room_number}}" data-roomid="{{$info->room_id}}"><i class="fas fa-pencil-alt"></i></button>
 
@@ -90,6 +90,16 @@
                           @if ($user->user_type == 'admin') @continue 
                           @elseif ($user->user_type == 'user') @continue @endif
                           <option value="{{$user->name}}">{{$user->name}}</option>
+                        @endforeach
+                        </select>
+                      </div>
+          <div class="form-group">
+                        <label>Confirm Name :</label>
+                        <select class="custom-select" name="student_id"class="form-control" id="student_id">
+                         @foreach($users as $user)
+                          @if ($user->user_type == 'admin') @continue 
+                          @elseif ($user->user_type == 'user') @continue @endif
+                          <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                         </select>
                       </div>
@@ -660,6 +670,7 @@
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('id') 
   var name = button.data('name') 
+  var student_id = button.data('student_id') 
   var email = button.data('email') 
   var university = button.data('university') 
   var department = button.data('department') 
@@ -669,6 +680,7 @@
   var modal = $(this)
   modal.find('.modal-body #id').val(id)
   modal.find('.modal-body #name').val(name)
+  modal.find('.modal-body #student_id').val(student_id)
   modal.find('.modal-body #email').val(email)
   modal.find('.modal-body #university').val(university)
   modal.find('.modal-body #department').val(department)
